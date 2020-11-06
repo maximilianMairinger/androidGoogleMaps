@@ -62,9 +62,7 @@ public class CustomListAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, MapsActivity.class);
-                // EditText editText = (EditText) findViewById(R.id.editText);
-                // String message = editText.getText().toString();
-                // intent.putExtra(EXTRA_MESSAGE, message);
+                intent.putExtra("coords", LatLngStr.stringify(country.getCoords()));
                 context.startActivity(intent);
             }
         });

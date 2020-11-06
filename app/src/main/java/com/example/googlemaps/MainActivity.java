@@ -8,6 +8,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.model.LatLng;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,12 +39,12 @@ public class MainActivity extends AppCompatActivity {
 
     private  List<ListItem> getListData() {
         List<ListItem> list = new ArrayList();
-        ListItem max = new ListItem("Maximilian Mairinger", "Super cool and stuff");
-        ListItem dan = new ListItem("Daniel Zimmermann", "Super cool and stuff");
-        ListItem rap = new ListItem("Raphael Schlager", "Super cool and stuff");
-        ListItem far = new ListItem("Farid Goldmann", "Super cool and stuff");
-        ListItem mor = new ListItem("Moritz Meier", "Super cool and stuff");
-        ListItem geo = new ListItem("Georg Felber", "Super cool and stuff");
+        ListItem max = new ListItem("Maximilian Mairinger", "Super cool and stuff", new LatLng(47.6965, 13.3457));
+        ListItem dan = new ListItem("Daniel Zimmermann", "Super cool and stuff", new LatLng(2, 3));
+        ListItem rap = new ListItem("Raphael Schlager", "Super cool and stuff", new LatLng(2, 4));
+        ListItem far = new ListItem("Farid Goldmann", "Super cool and stuff", new LatLng(2, 5));
+        ListItem mor = new ListItem("Moritz Meier", "Super cool and stuff", new LatLng(2, 6));
+        ListItem geo = new ListItem("Georg Felber", "Super cool and stuff", new LatLng(2, 7));
 
 
         list.add(max);

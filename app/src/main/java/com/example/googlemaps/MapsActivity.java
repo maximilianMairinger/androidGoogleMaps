@@ -3,6 +3,7 @@ package com.example.googlemaps;
 import androidx.fragment.app.FragmentActivity;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -14,11 +15,28 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    private LatLng coords;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+
+
+
+
+        Bundle extras = getIntent().getExtras();
+
+        if (extras != null) {
+            LatLng coords = LatLngStr.parse(extras.getString("coords"));
+            this.coords = coords;
+            Toast.makeText(this, "Here he is " + coords.latitude + coords.longitude, Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(this, "Error no extras found", Toast.LENGTH_SHORT).show();
+        }
+
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -38,9 +56,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        mMap.addMarker(new MarkerOptions().position(coords).title("Marker in Sydney"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(coords));
     }
 }
