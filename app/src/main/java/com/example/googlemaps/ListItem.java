@@ -1,19 +1,19 @@
 package com.example.googlemaps;
 
-public class ListItemLayout {
+public class ListItem {
     private String countryName;
 
     // Image name (Without extension)
     private String img;
     private String desc;
 
-    public ListItemLayout(String countryName, String desc) {
+    public ListItem(String countryName, String desc) {
         this.countryName= countryName;
         this.img = "unknown_avatar";
         this.desc= desc;
     }
 
-    public ListItemLayout(String countryName, String desc, String img) {
+    public ListItem(String countryName, String desc, String img) {
         this.countryName= countryName;
         this.img = img;
         this.desc= desc;

@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        List<ListItemLayout> image_details = getListData();
+        List<ListItem> image_details = getListData();
         final ListView listView = (ListView) findViewById(R.id.listView);
         listView.setAdapter(new CustomListAdapter(this, image_details));
 
@@ -29,20 +29,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> a, View v, int position, long id) {
                 Object o = listView.getItemAtPosition(position);
-                ListItemLayout country = (ListItemLayout) o;
+                ListItem country = (ListItem) o;
                 Toast.makeText(MainActivity.this, "Selected :" + " " + country, Toast.LENGTH_LONG).show();
             }
         });
     }
 
-    private  List<ListItemLayout> getListData() {
-        List<ListItemLayout> list = new ArrayList();
-        ListItemLayout max = new ListItemLayout("Maximilian Mairinger", "Super cool and stuff");
-        ListItemLayout dan = new ListItemLayout("Daniel Zimmermann", "Super cool and stuff");
-        ListItemLayout rap = new ListItemLayout("Raphael Schlager", "Super cool and stuff");
-        ListItemLayout far = new ListItemLayout("Farid Goldmann", "Super cool and stuff");
-        ListItemLayout mor = new ListItemLayout("Moritz Meier", "Super cool and stuff");
-        ListItemLayout geo = new ListItemLayout("Georg Felber", "Super cool and stuff");
+    private  List<ListItem> getListData() {
+        List<ListItem> list = new ArrayList();
+        ListItem max = new ListItem("Maximilian Mairinger", "Super cool and stuff");
+        ListItem dan = new ListItem("Daniel Zimmermann", "Super cool and stuff");
+        ListItem rap = new ListItem("Raphael Schlager", "Super cool and stuff");
+        ListItem far = new ListItem("Farid Goldmann", "Super cool and stuff");
+        ListItem mor = new ListItem("Moritz Meier", "Super cool and stuff");
+        ListItem geo = new ListItem("Georg Felber", "Super cool and stuff");
 
 
         list.add(max);

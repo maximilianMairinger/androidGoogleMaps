@@ -14,11 +14,11 @@ import android.widget.TextView;
 import java.util.List;
 
 public class CustomListAdapter extends BaseAdapter {
-    private List<ListItemLayout> listData;
+    private List<ListItem> listData;
     private LayoutInflater layoutInflater;
     private Context context;
 
-    public CustomListAdapter(Context aContext,  List<ListItemLayout> listData) {
+    public CustomListAdapter(Context aContext,  List<ListItem> listData) {
         this.context = aContext;
         this.listData = listData;
         layoutInflater = LayoutInflater.from(aContext);
@@ -53,7 +53,7 @@ public class CustomListAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        ListItemLayout country = this.listData.get(position);
+        ListItem country = this.listData.get(position);
         holder.header.setText(country.getCountryName());
         holder.desc.setText(country.getDesc());
 
